@@ -1,3 +1,33 @@
+<?php
+
+require 'connection.php';
+
+$sql = "SELECT * FROM route" ;
+$get_data = mysqli_query($conn,$sql );
+
+if(mysqli_num_rows($get_data) > 0){
+
+  echo '<table>
+      <tr>
+        <th>Bus ID</th>
+        <th>Route</th>
+        <th>Fare</th>
+      </tr>';
+    while ($row = mysqli_fetch_assoc($get_data)) {
+
+      echo '<tr>
+              <td>'.$row['BUS_ID'].'</td>
+              <td>'.$row['Route name'].'</td>
+              <td>'.$row['price'].'</td>
+
+          </tr>';
+
+    }
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="">
 	<head>
